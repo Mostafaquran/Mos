@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn & Memorize Holy Quran Online | Mostafa Mahmoud</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Personal online Quran lessons for non-Arab Muslims. Learn to read, improve Tajweed, and memorize the Holy Quran with Mostafa Mahmoud. Start your journey today.">
+    <meta name="keywords" content="Online Quran Teacher, Quran Teacher for Non-Arabs, Learn Quran Online, Online Quran Memorization, Quran Classes for Adults, Quran Classes for Children, Learn Tajweed Online, Quran Reading for Beginners, Quran Tutor for Non-Arab Muslims, Memorize Quran Online, Online Quran Classes for Muslims">
+    <meta name="author" content="Mostafa Mahmoud">
+    
+    <!-- Google Fonts: Inter for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS with custom configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#064e3b',    // Deep Islamic Green
+                            primary: '#059669', // Vibrant Green
+                            light: '#10b981',   // Soft Green
+                            gold: '#d97706',    // Elegant Gold
+                            beige: '#fef3c7',   // Warm Beige
+                            surface: '#f8fafc'  // Off-white background
+                        }
+                    },
+                    backgroundImage: {
+                        'islamic-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for nuances Tailwind doesn't cover easily inline */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #059669, #064e3b);
+        }
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+        /* FAQ Accordion */
+        .faq-answer {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust if content is very long */
+            opacity: 1;
+            padding-top: 1rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-brand-surface text-slate-800 antialiased overflow-x-hidden selection:bg-brand-primary selection:text-white">
+
+<a href="https://wa.me/201044018095" target="_blank" rel="noopener noreferrer" 
+   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 flex items-center justify-center"
+   aria-label="Contact on WhatsApp">
+    <i class="fab fa-whatsapp text-3xl"></i>
+    <span class="absolute -top-12 right-0 bg-white text-slate-800 text-sm font-semibold py-1 px-3 rounded-lg shadow-lg whitespace-nowrap opacity-0 md:opacity-100 hidden md:block">
+        Start Learning
+        <svg class="absolute text-white h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+    </span>
+</a>
+
+<nav class="fixed w-full z-40 glass-nav transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                <i class="fas fa-book-open text-brand-primary text-2xl mr-2"></i>
+                <span class="font-bold text-xl md:text-2xl text-brand-dark tracking-tight">Mostafa Mahmoud</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-slate-600 hover:text-brand-primary font-medium transition-colors">About</a>
+                <a href="#courses" class="text-slate-600 hover:text-brand-primary font-medium transition-colors">Quran Courses</a>
+                <a href="#how-it-works" class="text-slate-600 hover:text-brand-primary font-medium transition-colors">How It Works</a>
+                <a href="#faq" class="text-slate-600 hover:text-brand-primary font-medium transition-colors">FAQ</a>
+                <a href="https://wa.me/201044018095" target="_blank" class="bg-brand-primary hover:bg-brand-dark text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg flex items-center">
+                    <i class="fab fa-whatsapp mr-2 text-lg"></i> Contact Me
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-primary focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="#about" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-brand-beige rounded-md">About</a>
+            <a href="#courses" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-brand-beige rounded-md">Quran Courses</a>
+            <a href="#how-it-works" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-brand-beige rounded-md">How It Works</a>
+            <a href="#faq" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-brand-beige rounded-md">FAQ</a>
+            <a href="https://wa.me/201044018095" target="_blank" class="block w-full text-center mt-4 bg-brand-primary text-white px-5 py-3 rounded-xl font-semibold shadow-md flex justify-center items-center">
+                <i class="fab fa-whatsapp mr-2 text-xl"></i> Book Your Lesson
+            </a>
+        </div>
+    </div>
+</nav>
+
+<header class="relative bg-brand-dark overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32">
+    <!-- Background Islamic Pattern -->
+    <div class="absolute inset-0 bg-islamic-pattern opacity-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-dark opacity-90"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+        
+        <!-- Hero Text -->
+        <div class="md:w-3/5 text-center md:text-left z-10" data-aos="fade-up" data-aos-duration="1000">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-light/20 text-brand-beige font-semibold text-sm mb-6 border border-brand-light/30">
+                <i class="fas fa-star text-brand-gold mr-1"></i> Specializing in Non-Arab Muslims
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                Learn & Memorize the <span class="text-brand-gold">Holy Quran</span> Online
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-4 font-light leading-relaxed">
+                Personal Quran lessons for non-Arab Muslims who want to improve their reading, pronunciation, Tajweed, and memorization of the Holy Quran.
+            </p>
+            <p class="text-md text-brand-beige mb-10 font-medium border-l-4 border-brand-gold pl-4 text-left inline-block">
+                Learn the Quran step by step in a simple, supportive, and comfortable online environment.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a href="https://wa.me/201044018095" target="_blank" class="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2 text-2xl"></i> Start Learning on WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero Image/Graphic -->
+        <div class="md:w-2/5 mt-12 md:mt-0 z-10 hidden md:block" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+            <div class="relative">
+                <div class="absolute inset-0 bg-brand-gold rounded-full blur-3xl opacity-20 floating-element"></div>
+                <img src="https://images.unsplash.com/photo-1609599006353-e629aaab31ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Holy Quran" class="relative rounded-2xl shadow-2xl border-4 border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Curved shape divider -->
+    <div class="absolute bottom-0 w-full overflow-hidden leading-none">
+        <svg class="relative block w-full h-[50px] md:h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="fill-brand-surface"></path>
+        </svg>
+    </div>
+</header>
+
+<section id="about" class="py-20 bg-brand-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="lg:w-1/2" data-aos="fade-right">
+                <div class="relative inline-block">
+                    <!-- Decorative background element -->
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-brand-beige rounded-2xl z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1584281729094-131fa197db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Islamic Architecture Mosque" class="relative z-10 rounded-2xl shadow-xl border-4 border-white w-full h-auto object-cover max-h-[500px]">
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2" data-aos="fade-left">
+                <h4 class="text-brand-primary font-bold tracking-wider uppercase text-sm mb-2">About The Instructor</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Meet Your Quran Teacher</h2>
+                
+                <div class="space-y-4 text-lg text-slate-600 leading-relaxed">
+                    <p>
+                        <span class="font-semibold text-slate-800">My name is Mostafa Mahmoud,</span> and I provide online Quran teaching and memorization lessons specially designed for non-Arab Muslims.
+                    </p>
+                    <p>
+                        My goal is to help Muslim students build a strong relationship with the Holy Quran by teaching them how to read it correctly, improve their pronunciation, learn Tajweed, memorize Quranic verses and Surahs, and continuously revise what they have memorized.
+                    </p>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start mt-6">
+                        <i class="fas fa-bullseye text-brand-gold text-2xl mt-1 mr-4"></i>
+                        <p class="text-slate-700 italic font-medium">
+                            "Lessons are designed according to each student's current Quran level, native language background, and individual learning ability."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <a href="https://wa.me/201044018095" target="_blank" class="inline-flex items-center text-brand-primary font-bold hover:text-brand-dark transition-colors group">
+                        Message Me on WhatsApp <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4" data-aos="fade-up">Who Are These Lessons For?</h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            These lessons are specially designed for <span class="font-bold text-brand-primary">Muslims whose native language is not Arabic</span>.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-globe text-brand-light mr-2"></i> Non-Arab Muslims</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-seedling text-brand-light mr-2"></i> New Quran learners</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-book-reader text-brand-light mr-2"></i> Non-fluent readers</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-assistive-listening-systems text-brand-light mr-2"></i> Improve Tajweed</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-brain text-brand-light mr-2"></i> Memorize Quran</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-history text-brand-light mr-2"></i> Revise Memorization</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-user-tie text-brand-light mr-2"></i> Adults</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-child text-brand-light mr-2"></i> Children</span>
+            <span class="px-6 py-3 bg-brand-surface rounded-full text-slate-700 font-medium shadow-sm border border-slate-100 flex items-center"><i class="fas fa-layer-group text-brand-light mr-2"></i> Beginners & Intermediate</span>
+        </div>
+    </div>
+</section>
+
+<section id="courses" class="py-20 bg-slate-50 relative">
+    <!-- Decorative background -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-1/4 -left-64 w-96 h-96 bg-brand-light rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+        <div class="absolute bottom-1/4 -right-64 w-96 h-96 bg-brand-gold rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h4 class="text-brand-primary font-bold tracking-wider uppercase text-sm mb-2">Our Programs</h4>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Quran Learning Services</h2>
+            <p class="text-slate-600 text-lg">Comprehensive lessons customized for your pace, level, and goals.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Service 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Quran Memorization</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Step-by-step Quran memorization lessons designed according to the student's ability and available study time.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+                    Students receive a clear memorization and revision plan to help them memorize gradually and consistently.
+                </p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Quran Reading for Beginners</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Helping non-Arab Muslims who have difficulty reading Arabic to gradually learn how to read Quranic words and verses correctly.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+                    Highly suitable for beginners who are just starting their Quran learning journey.
+                </p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Quran Recitation</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Students practice reading Quran directly with the teacher while mistakes in pronunciation and recitation are corrected gently in real-time.
+                </p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-om"></i> <!-- Using a standard icon to represent vocal rules/tajweed -->
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Tajweed Lessons</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Teaching the essential Tajweed rules needed to recite the Holy Quran correctly and beautifully.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+                    Rules are explained in a very simple and practical way suitable for non-Arab students.
+                </p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Pronunciation Correction</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Special attention is given to correctly pronouncing Arabic letters (Makharij) and Quranic words.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+                    Especially useful for non-Arab Muslims who struggle with specific Arabic sounds.
+                </p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Memorization Revision</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Regular revision sessions designed to help students strengthen previously memorized Surahs and prevent forgetting them over time.
+                </p>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Surah Memorization</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Choose to memorize specific Surahs, short Surahs, Juz Amma, or gradually work toward memorizing larger portions of the Quran.
+                </p>
+            </div>
+
+            <!-- Service 8 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Al-Fatiha Correction</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Special focused lessons to make sure you are reciting Surah Al-Fatiha correctly, which is essential for daily prayers.
+                </p>
+            </div>
+
+             <!-- Service 9 -->
+             <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 bg-brand-beige text-brand-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Lessons for Adults & Children</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    <strong class="text-slate-800">For Adults:</strong> Private, comfortable lessons to begin or improve your current level.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3">
+                    <strong class="text-slate-800">For Children:</strong> Simple, encouraging, and gradual learning designed to keep kids engaged.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Individual Plan Banner -->
+        <div class="mt-16 bg-brand-dark rounded-3xl p-8 md:p-12 text-center relative overflow-hidden shadow-2xl" data-aos="zoom-in">
+            <div class="absolute inset-0 bg-islamic-pattern opacity-10"></div>
+            <div class="relative z-10">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Every student receives an <span class="text-brand-gold">Individual Quran Learning Plan</span></h3>
+                <p class="text-gray-300 mb-8 max-w-3xl mx-auto">Your personalized plan is created according to your:</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 md:gap-6">
+                    <span class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm"><i class="fas fa-check text-brand-light mr-2"></i> Current reading level</span>
+                    <span class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm"><i class="fas fa-check text-brand-light mr-2"></i> Memorization level</span>
+                    <span class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm"><i class="fas fa-check text-brand-light mr-2"></i> Learning speed</span>
+                    <span class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm"><i class="fas fa-check text-brand-light mr-2"></i> Available study time</span>
+                    <span class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-lg text-sm"><i class="fas fa-check text-brand-light mr-2"></i> Personal Quran goals</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="https://wa.me/201044018095" target="_blank" class="inline-block bg-white text-brand-primary border-2 border-brand-primary hover:bg-brand-primary hover:text-white px-8 py-3 rounded-full font-bold text-lg transition-colors shadow-sm">
+                Book Your Quran Lesson
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-16" data-aos="fade-up">Your Quran Learning Journey</h2>
+        
+        <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-2 relative">
+            
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center z-10 w-40" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-20 h-20 bg-slate-50 rounded-full border-4 border-brand-light flex items-center justify-center text-3xl text-brand-dark mb-4 shadow-md">
+                    <i class="fas fa-font"></i>
+                </div>
+                <h4 class="font-bold text-slate-700 text-sm">Learn Arabic Letters</h4>
+            </div>
+
+            <!-- Arrow (Hidden on mobile, visible on md+) -->
+            <div class="hidden md:flex items-center h-20 text-slate-300 text-2xl" data-aos="fade-in" data-aos-delay="150"><i class="fas fa-chevron-right"></i></div>
+            <!-- Arrow Mobile -->
+            <div class="md:hidden text-slate-300 text-2xl my-2" data-aos="fade-in"><i class="fas fa-chevron-down"></i></div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center z-10 w-40" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-20 h-20 bg-slate-50 rounded-full border-4 border-brand-light flex items-center justify-center text-3xl text-brand-dark mb-4 shadow-md">
+                    <i class="fas fa-book-reader"></i>
+                </div>
+                <h4 class="font-bold text-slate-700 text-sm">Read Quran</h4>
+            </div>
+
+            <div class="hidden md:flex items-center h-20 text-slate-300 text-2xl" data-aos="fade-in" data-aos-delay="250"><i class="fas fa-chevron-right"></i></div>
+            <div class="md:hidden text-slate-300 text-2xl my-2" data-aos="fade-in"><i class="fas fa-chevron-down"></i></div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center z-10 w-40" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-20 h-20 bg-slate-50 rounded-full border-4 border-brand-light flex items-center justify-center text-3xl text-brand-dark mb-4 shadow-md">
+                    <i class="fas fa-headphones-alt"></i>
+                </div>
+                <h4 class="font-bold text-slate-700 text-sm">Correct Pronunciation</h4>
+            </div>
+
+            <div class="hidden md:flex items-center h-20 text-slate-300 text-2xl" data-aos="fade-in" data-aos-delay="350"><i class="fas fa-chevron-right"></i></div>
+            <div class="md:hidden text-slate-300 text-2xl my-2" data-aos="fade-in"><i class="fas fa-chevron-down"></i></div>
+
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center z-10 w-40" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-20 h-20 bg-slate-50 rounded-full border-4 border-brand-gold flex items-center justify-center text-3xl text-brand-gold mb-4 shadow-md">
+                    <i class="fas fa-star-and-crescent"></i>
+                </div>
+                <h4 class="font-bold text-slate-700 text-sm">Learn Tajweed</h4>
+            </div>
+
+            <div class="hidden md:flex items-center h-20 text-slate-300 text-2xl" data-aos="fade-in" data-aos-delay="450"><i class="fas fa-chevron-right"></i></div>
+            <div class="md:hidden text-slate-300 text-2xl my-2" data-aos="fade-in"><i class="fas fa-chevron-down"></i></div>
+
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center z-10 w-40" data-aos="fade-up" data-aos-delay="500">
+                <div class="w-20 h-20 bg-slate-50 rounded-full border-4 border-brand-gold flex items-center justify-center text-3xl text-brand-gold mb-4 shadow-md">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h4 class="font-bold text-slate-700 text-sm">Memorize Quran</h4>
+            </div>
+
+            <div class="hidden md:flex items-center h-20 text-slate-300 text-2xl" data-aos="fade-in" data-aos-delay="550"><i class="fas fa-chevron-right"></i></div>
+            <div class="md:hidden text-slate-300 text-2xl my-2" data-aos="fade-in"><i class="fas fa-chevron-down"></i></div>
+
+            <!-- Step 6 -->
+            <div class="flex flex-col items-center z-10 w-40" data-aos="fade-up" data-aos-delay="600">
+                <div class="w-20 h-20 bg-brand-primary rounded-full border-4 border-brand-primary flex items-center justify-center text-3xl text-white mb-4 shadow-lg shadow-brand-primary/40">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <h4 class="font-bold text-slate-700 text-sm">Revise Regularly</h4>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works" class="py-20 bg-brand-surface border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">How It Works</h2>
+            <p class="text-slate-600 text-lg">Starting your Quran journey is simple.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- Step 1 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative pt-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-primary/30">1</div>
+                <h3 class="text-xl font-bold text-center text-slate-800 mb-3">Contact Me</h3>
+                <p class="text-slate-600 text-center text-sm">Send a WhatsApp message and tell me about your current Quran level.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative pt-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-primary/30">2</div>
+                <h3 class="text-xl font-bold text-center text-slate-800 mb-3">Determine Level</h3>
+                <p class="text-slate-600 text-center text-sm">We identify your Quran reading, pronunciation, Tajweed, and memorization level.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative pt-12" data-aos="fade-up" data-aos-delay="300">
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-primary/30">3</div>
+                <h3 class="text-xl font-bold text-center text-slate-800 mb-3">Learning Plan</h3>
+                <p class="text-slate-600 text-center text-sm">A personalized Quran learning and memorization plan is prepared according to your goals.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative pt-12" data-aos="fade-up" data-aos-delay="400">
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-brand-gold text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-gold/30">4</div>
+                <h3 class="text-xl font-bold text-center text-slate-800 mb-3">Start Learning</h3>
+                <p class="text-slate-600 text-center text-sm">Begin your online Quran lessons and progress step by step comfortably.</p>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="https://wa.me/201044018095" target="_blank" class="inline-flex items-center bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-full font-bold text-lg shadow-md transition-colors">
+                <i class="fab fa-whatsapp mr-2 text-xl"></i> Contact Me on WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
+        
+        <div class="lg:w-1/2" data-aos="fade-right">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Why Learn With Mostafa Mahmoud?</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mt-8">
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Designed specifically for non-Arab Muslims</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Simple and clear teaching methods</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Personal attention to every student</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Step-by-step Quran learning</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Individual memorization plans</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Continuous revision systems</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Pronunciation correction</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Tajweed improvement</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Suitable for beginners, adults, and children</p>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-check-circle text-brand-primary mt-1 mr-3 text-lg"></i>
+                    <p class="text-slate-700 font-medium">Comfortable online learning from anywhere</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:w-1/2" data-aos="fade-left">
+             <div class="relative bg-brand-beige p-8 rounded-3xl overflow-hidden border border-brand-gold/20">
+                <i class="fas fa-quote-left absolute text-8xl text-brand-gold/10 -top-4 -left-4"></i>
+                <h3 class="text-2xl font-bold text-brand-dark mb-4 relative z-10">A Peaceful Learning Environment</h3>
+                <p class="text-slate-700 text-lg leading-relaxed relative z-10 mb-6">
+                    Learning the Quran should be a peaceful and spiritual experience. I strive to create a comfortable, one-to-one online environment where students feel encouraged to ask questions, make mistakes, and learn at a pace that respects their individual abilities and busy lives.
+                </p>
+                <a href="https://wa.me/201044018095" target="_blank" class="text-brand-dark font-bold underline decoration-brand-gold decoration-2 underline-offset-4 hover:text-brand-primary transition-colors relative z-10">Start Your Journey Today</a>
+             </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-brand-dark relative overflow-hidden">
+    <div class="absolute inset-0 bg-islamic-pattern opacity-10"></div>
+    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-gold rounded-full filter blur-[100px] opacity-20"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-light rounded-full filter blur-[100px] opacity-20"></div>
+
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10" data-aos="zoom-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Start Your Quran Journey Today</h2>
+        <p class="text-xl text-gray-200 mb-10 leading-relaxed font-light">
+            Whether you are starting from the beginning, improving your Quran reading, learning Tajweed, or beginning your memorization journey, you can learn step by step with personalized guidance.
+        </p>
+        <a href="https://wa.me/201044018095" target="_blank" class="inline-flex items-center bg-white text-brand-dark hover:bg-brand-beige px-10 py-5 rounded-full font-bold text-xl shadow-2xl transition-all transform hover:scale-105">
+            <i class="fab fa-whatsapp text-2xl mr-3 text-[#25D366]"></i> Contact Mostafa on WhatsApp
+        </a>
+        <p class="mt-4 text-brand-gold font-medium">+20 104 401 8095</p>
+    </div>
+</section>
+
+<section id="faq" class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Frequently Asked Questions</h2>
+            <p class="text-slate-600">Common questions about the online Quran lessons.</p>
+        </div>
+
+        <div class="space-y-4">
+            
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">Can beginners join?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Yes. Lessons can start from the absolute basic level and gradually progress toward Quran reading, Tajweed, and memorization at your own pace.
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="150">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">Are the lessons suitable for non-Arab Muslims?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Yes. The lessons are specifically designed for Muslims whose native language is not Arabic. Wording and explanations are kept simple and clear in English.
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">Can adults learn Quran?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Yes. Adults at any Quran level can join. The learning environment is private, respectful, and tailored to adult learning speeds.
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="250">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">Can children join?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Yes. Quran learning and memorization lessons can be adapted to be engaging and encouraging for Muslim children.
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">Can I only focus on memorization?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Yes. A specific Quran memorization and revision plan can be created entirely according to your level and goals.
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="350">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">Can I improve my Quran pronunciation?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Yes. Quran recitation mistakes and Arabic letter pronunciation are corrected gently during lessons to help you sound authentic.
+                </div>
+            </div>
+
+            <!-- FAQ Item 7 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="400">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">Can I learn Tajweed?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Yes. Tajweed rules can be taught gradually while practicing Quran recitation, avoiding overwhelming theoretical memorization.
+                </div>
+            </div>
+
+            <!-- FAQ Item 8 -->
+            <div class="faq-item bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:border-brand-light/50 transition-colors" data-aos="fade-up" data-aos-delay="450">
+                <button class="w-full px-6 py-5 text-left focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                    <span class="font-bold text-slate-800 text-lg">How can I start?</span>
+                    <i class="fas fa-chevron-down faq-icon text-brand-primary transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer px-6 pb-5 text-slate-600 bg-slate-50/50">
+                    Simply contact Mostafa Mahmoud through WhatsApp at <strong>+20 104 401 8095</strong> to discuss your goals and schedule your first lesson.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="bg-slate-900 text-white border-t-4 border-brand-primary pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-start border-b border-slate-800 pb-12 mb-8 gap-8 text-center md:text-left">
+            
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold mb-2">Start Learning Quran Today</h2>
+                <div class="flex items-center justify-center md:justify-start text-brand-gold mb-1">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i> Teacher: <span class="text-white ml-1">Mostafa Mahmoud</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-6">Service: Online Quran Teaching & Memorization for Non-Arab Muslims</p>
+                
+                <a href="https://wa.me/201044018095" target="_blank" class="inline-flex items-center bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-3 rounded-xl font-bold text-lg transition-colors">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i> Message Me on WhatsApp
+                </a>
+                <p class="mt-3 text-slate-300 font-mono tracking-wider"><i class="fas fa-phone-alt text-brand-primary text-sm mr-2"></i>+20 104 401 8095</p>
+            </div>
+
+            <div class="md:w-1/4">
+                <h4 class="text-brand-gold font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#about" class="text-slate-400 hover:text-white transition-colors">About Teacher</a></li>
+                    <li><a href="#courses" class="text-slate-400 hover:text-white transition-colors">Quran Services</a></li>
+                    <li><a href="#faq" class="text-slate-400 hover:text-white transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2026 Mostafa Mahmoud. All rights reserved.</p>
+            <p class="mt-2 md:mt-0 flex items-center">
+                <i class="fas fa-mosque mr-2 text-brand-primary/50"></i> May Allah bless your Quran journey.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize Animate On Scroll
+    AOS.init({
+        once: true,
+        offset: 50,
+        duration: 800,
+        easing: 'ease-out-cubic',
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        const icon = mobileMenuBtn.querySelector('i');
+        if(mobileMenu.classList.contains('open')){
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+    });
+
+    // Navbar scroll effect (add shadow/blur on scroll)
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            navbar.classList.add('shadow-md');
+        } else {
+            navbar.classList.remove('shadow-md');
+        }
+    });
+
+    // FAQ Toggle Logic
+    function toggleFaq(button) {
+        const item = button.parentElement;
+        const wasActive = item.classList.contains('active');
+        
+        // Close all other open FAQs
+        document.querySelectorAll('.faq-item.active').forEach(openItem => {
+            if (openItem !== item) {
+                openItem.classList.remove('active');
+            }
+        });
+
+        // Toggle current
+        if (!wasActive) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    }
+</script>
+
+</body>
+</html>
